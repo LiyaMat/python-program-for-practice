@@ -1,0 +1,27 @@
+#Input:   str = "a,b$c"
+#Output:  str = "c,b$a"
+#Note that $ and , are not moved anywhere.
+#Only subsequence "abc" is reversed
+
+
+
+s=input()
+li = []
+finallist = []
+x = 0
+list = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "\'", ",", "+",
+        "=", "_", "-", "]", "[", "{", "{", ">", "<", "/", ";", "|", "`", "~"]
+for i in s:
+    if i in list:
+        continue
+    else:
+        li.append(i)
+for i in s:
+    if i not in list:
+        x = li.pop()
+        finallist.append(x)
+    else:
+        finallist.append(i)
+        continue
+string1 = ''.join(map(str, finallist))
+print (string1)
