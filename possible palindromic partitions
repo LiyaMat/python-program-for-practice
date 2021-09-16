@@ -1,0 +1,25 @@
+
+#Given a string, print all possible palindromic partitions
+s = list(input())
+string = ''.join(map(str, s))
+li = []
+for i in s:
+    if (s.count(i) > 1):
+        j=-1
+        m = s.index(i,j+1)
+        #print ("m is",m)
+        k = m
+        while(string.find(i, k + 1) != -1):
+            n = s.index(i, k + 1)
+            #print(n)
+            if string[m:n+1:-1] != string[m:n+1:1]:
+
+                if (string[m:n+1] not in li):
+                    li.append(string[m:n+1])
+
+            k = n
+            j=m+1
+for i in s:
+    if i not in li:
+        li.append(i)
+print(li)
